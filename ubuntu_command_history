@@ -1,0 +1,36 @@
+    8  mkdir gb-final-work
+    9  cd gb-final-work/
+   10  cat > Pets
+   11  cat PackAnimals
+   12  cat > PackAnimals
+
+   16  cat Pets PackAnimals > AllAnimals
+   17  ls
+   18  mv AllAnimals HumanFriends.txt
+
+   47  mkdir Animals
+   48  mv HumanFriends.txt Animals/
+   49  ll
+   50  ll Animals/
+
+   53  sudo apt install mysql-server-8.0
+   
+   61  sudo apt remove mysql-server-8.0
+
+  246  wget -c https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb
+  247  cd ~/Downloads
+  248  ll
+  249  sudo dpkg -i mysql-apt-config_0.8.13-1_all.deb
+  250  gpg --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29
+  251  gpg --export --armor 467B942D3A79BD29 | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/mysql.5.7-key.gpg
+  252  sudo apt update
+  253  sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
+  254  mysql --version
+
+  289  cd ~/Downloads
+  290  wget https://download.sublimetext.com/sublime-text_build-3211_amd64.deb
+  291  ll
+  292  sudo dpkg -i sublime-text_build-3211_amd64.deb
+  
+  305  apt search sublime
+  306  sudo dpkg -r sublime-text
