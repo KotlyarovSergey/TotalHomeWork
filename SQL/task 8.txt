@@ -1,0 +1,58 @@
+-- Создать таблицы с иерархией из диаграммы в БД
+
+DROP TABLE IF EXISTS camels;
+CREATE TABLE camels (
+  Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  CamelName VARCHAR(45),
+  Birth DATETIME,
+  Capacity INT,
+  TimeWithoutWater INT
+);
+
+
+DROP TABLE IF EXISTS donkeys;
+CREATE TABLE donkeys (
+  Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  DonkeyName VARCHAR(45),
+  Birth DATETIME,
+  Capacity INT,
+  Stubbornness INT
+);
+
+
+DROP TABLE IF EXISTS horses;
+CREATE TABLE horses (
+  Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  HorseName VARCHAR(45),
+  Birth DATETIME,
+  Capacity INT,
+  Speed INT
+);
+
+
+DROP TABLE IF EXISTS commands;
+CREATE TABLE commands (
+  Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  Description VARCHAR(45)
+);
+
+DROP TABLE IF EXISTS camel_skills;
+CREATE TABLE camel_skills (
+  Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  camel_id INT,
+  command_id INT
+);
+
+DROP TABLE IF EXISTS donkey_skills;
+CREATE TABLE donkey_skills (
+  Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  donkey_id INT,
+  command_id INT
+);
+
+DROP TABLE IF EXISTS horse_skills;
+CREATE TABLE horse_skills (
+  Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  horse_id INT,
+  command_id INT
+);

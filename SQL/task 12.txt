@@ -1,0 +1,24 @@
+-- Объединить все таблицы в одну, при этом сохраняя поля, указывающие на
+-- прошлую принадлежность к старым таблицам.
+
+DROP TABLE IF EXISTS all_animals;
+CREATE TABLE all_animals AS
+
+SELECT Id AS horse_id, NULL AS donkey_id, NULL AS camel_id, HorseName,  Birth, Capacity, Speed, NULL AS Stubbornness, NULL AS TimeWithoutWater FROM horses
+UNION
+SELECT           NULL,                Id,             NULL, DonkeyName, Birth, Capacity,  NULL,         Stubbornness,                     NULL FROM donkeys
+UNION
+SELECT           NULL,              NULL,               Id, CamelName,  Birth, Capacity,  NULL,                 NULL, TimeWithoutWater FROM camels;
+
+ALTER TABLE all_animals
+ADD COLUMN animal_type VARCHAR(10) FIRST;
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE all_animals
+SET animal_type = CASE
+   WHEN horse_id IS NOT NULL THEN 'horse'
+   WHEN donkey_id IS NOT NULL THEN 'donkey'
+   ELSE 'camel'
+END;
+
+

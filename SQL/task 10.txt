@@ -1,0 +1,10 @@
+-- Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
+-- питомник на зимовку. Объединить таблицы лошади, и ослы в одну таблицу.
+
+DROP TABLE IF EXISTS camels;
+
+DROP TABLE IF EXISTS horses_and_donkeys;
+CREATE TABLE horses_and_donkeys AS 
+SELECT Id AS horse_id, NULL AS donkey_id, HorseName, Birth, Capacity, Speed, NULL AS Stubbornness FROM horses
+UNION
+SELECT NULL, Id,  DonkeyName, Birth, Capacity, NULL, Stubbornness FROM donkeys;

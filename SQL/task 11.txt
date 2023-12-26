@@ -1,0 +1,13 @@
+-- Создать новую таблицу “молодые животные” в которую попадут все
+-- животные старше 1 года, но младше 3 лет и в отдельном столбце с точностью
+-- до месяца подсчитать возраст животных в новой таблице
+
+
+DROP TABLE IF EXISTS young_animals;
+CREATE TABLE young_animals AS
+SELECT HorseName, Birth FROM horses
+UNION
+SELECT DonkeyName, Birth FROM donkeys
+UNION
+SELECT CamelName, Birth FROM camels
+WHERE Birth <= DATE_SUB(CURRENT_DATE, INTERVAL 1 YEAR) AND Birth > DATE_SUB(CURRENT_DATE, INTERVAL 3 YEAR);

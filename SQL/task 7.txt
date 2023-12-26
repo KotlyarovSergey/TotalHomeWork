@@ -1,0 +1,5 @@
+-- создать базу данных “Друзья человека”
+
+DROP DATABASE IF EXISTS human_friends;
+CREATE DATABASE human_friends;
+USE human_friends;
