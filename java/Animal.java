@@ -36,5 +36,10 @@ public abstract class Animal implements Serializable{
     public List<String> getCommands(){
         return this.commandList;
     }
+
+    @Override
+    public String toString(){
+        return String.format("%s %s, cmds: %s", this.getClass().getSimpleName(), this.name, this.commandList);
+    }
     
 }
